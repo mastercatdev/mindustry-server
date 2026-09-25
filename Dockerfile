@@ -1,7 +1,7 @@
 # Mindustry Server Dockerfile for Railway
-# Uses startup script for proper execution
+# Uses Java 17 (required for Mindustry server v143+)
 
-FROM eclipse-temurin:8-jre-jammy
+FROM eclipse-temurin:17-jre-jammy
 
 # Install wget
 RUN apt-get update && apt-get install -y wget
