@@ -26,5 +26,5 @@ COPY banlist.txt /server/
 # Expose the Mindustry server port
 EXPOSE 6567
 
-# Run the server with attack mode and custom map
-CMD ["java", "-Xmx2G", "-Xms1G", "-jar", "server.jar", "-port", "6567", "-mode", "attack", "-map", "attack-complex"]
+# Run the server - Mindustry uses config file, not command line args
+CMD ["java", "-Xmx2G", "-Xms1G", "-jar", "server.jar"]
