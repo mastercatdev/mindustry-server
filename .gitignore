@@ -1,0 +1,19 @@
+# Mindustry Server
+server.jar
+config/
+saves/
+logs/
+*.bin
+*.tmp
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Git
+.git
+.gitignore
+
+# OS
+.DS_Store
+Thumbs.db

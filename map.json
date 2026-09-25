@@ -1,0 +1,65 @@
+{
+  "name": "Complex Enemy Base",
+  "author": "Server Admin",
+  "description": "Attack mode with extremely complex enemy base and lenient starting waves",
+  "width": 512,
+  "height": 512,
+  "version": 1,
+  "rules": {
+    "mode": "attack",
+    "waveTimer": 180,
+    "waveInterval": 60,
+    "waveDifficulty": 0.5,
+    "initialWaveDifficulty": 0.3,
+    "difficultyScaling": 0.95,
+    "enemyBaseComplexity": 10,
+    "enemyBaseResources": 20,
+    "enemySpawnRate": 1.5,
+    "startingResources": 5000,
+    "endlessWaves": true,
+    "pausable": false
+  },
+  "spawns": {
+    "players": [
+      {"x": 100, "y": 100, "team": 0}
+    ],
+    "enemy": {
+      "x": 256,
+      "y": 256,
+      "team": 1
+    }
+  },
+  "enemyBase": {
+    "complexity": 10,
+    "size": 200,
+    "turrets": 50,
+    "walls": 300,
+    "factories": 25,
+    "powerNodes": 15,
+    "cores": 3,
+    "drills": 40,
+    "conveyors": 200,
+    "unitFactories": 8,
+    "unitCapacity": 500,
+    "aiDifficulty": 8,
+    "aiAggressiveness": 7,
+    "aiDefensePriority": 9,
+    "aiExpansion": true,
+    "shields": true,
+    "regeneration": true,
+    "bossSpawns": true,
+    "artillery": true
+  },
+  "terrain": {
+    "ground": "stone",
+    "walls": "darkPanel",
+    "fog": true,
+    "fogColor": [0.2, 0.2, 0.3, 0.8],
+    "lighting": 0.6
+  },
+  "waveSettings": {
+    "groundUnits": 0.6,
+    "airUnits": 0.3,
+    "bossUnits": 0.1
+  }
+}
