@@ -1,30 +1,24 @@
-# Mindustry Server Dockerfile for Render
-# Uses OpenJDK 8 (required for Mindustry server compatibility)
-# All files in root, no subdirectories
+# Mindustry Server Dockerfile for Railway
+# Headless mode for Docker
 
-FROM adoptopenjdk:8-jre-hotspot
+FROM eclipse-temurin:8-jre-jammy
 
-# Install wget for downloading the server
-RUN apt-get update && \
-    apt-get install -y wget && \
-    rm -rf /var/lib/apt/lists/*
+# Install wget
+RUN apt-get update && apt-get install -y wget
 
 # Create server directory
 RUN mkdir -p /server
 WORKDIR /server
 
-# Download Mindustry server (latest stable version)
-RUN wget -O server.jar https://github.com/Anuken/Mindustry/releases/download/v143/server-release.jar
+# Download server
+RUN wget -O server.jar https://github.com/Anuken/Mindustry/releases/latest/download/server-release.jar || \
+    wget -O server.jar https://github.com/Anuken/Mindustry/releases/download/v143/server-release.jar
 
-# Copy all configuration files to /server/
+# Copy config
 COPY server.properties /server/
-COPY map.properties /server/map.properties
-COPY map.json /server/map.json
-COPY adminlist.txt /server/
-COPY banlist.txt /server/
 
-# Expose the Mindustry server port
+# Expose port
 EXPOSE 6567
 
-# Run the server - Mindustry uses config file, not command line args
-CMD ["java", "-Xmx2G", "-Xms1G", "-jar", "server.jar"]
+# Run server in headless mode
+CMD ["java", "-Djava.net.preferIPv4Stack=true", "-Djava.net.preferIPv4Addresses=true", "-Xmx2G", "-jar", "server.jar", "-port", "6567"]
