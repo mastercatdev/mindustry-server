@@ -1,13 +1,12 @@
 #!/bin/bash
 
 # Mindustry Server Startup Script for Docker
+# Note: Mindustry server reads ALL settings from server.properties
+# Do NOT pass command-line arguments - they cause errors
+
 cd /server
 
-# Run server with all necessary arguments
 exec java \
   -Xmx2G \
   -Xms1G \
-  -jar server.jar \
-  -port 6567 \
-  -mode attack \
-  -map attack
+  -jar server.jar
