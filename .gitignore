@@ -1,4 +1,4 @@
-# Mindustry Server
+# Local-only server data (the Docker image downloads its own server.jar)
 server.jar
 config/
 saves/
@@ -6,13 +6,9 @@ logs/
 *.bin
 *.tmp
 
-# Docker
-Dockerfile
-.dockerignore
-
-# Git
-.git
-.gitignore
+# Old Railway/Render/ngrok files - never publish (contained an ngrok token)
+old/
+*.exe
 
 # OS
 .DS_Store

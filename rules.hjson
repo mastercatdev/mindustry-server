@@ -1,0 +1,30 @@
+# Global game rules, applied on top of every map's own rules.
+# Times are in ticks: 60 ticks = 1 second.
+{
+  # Lenient start: 12 minutes before the first wave, then 2.5 minutes between waves
+  "waves": true,
+  "waveTimer": true,
+  "initialWaveSpacing": 43200,
+  "waveSpacing": 9000,
+
+  # Starting resources for the player core (capped by core capacity)
+  "loadout": [
+    {"item": "copper", "amount": 4000},
+    {"item": "lead", "amount": 3000},
+    {"item": "graphite", "amount": 1000},
+    {"item": "silicon", "amount": 1000},
+    {"item": "titanium", "amount": 500}
+  ],
+
+  "teams": {
+    # 1 = sharded (players): build faster to get set up
+    "1": {"buildSpeedMultiplier": 1.5},
+    # 2 = crux (enemy): weaker units, but a tougher base to crack
+    "2": {"unitDamageMultiplier": 0.75, "unitHealthMultiplier": 0.85, "blockHealthMultiplier": 1.25}
+  },
+
+  # Anti-grief defaults recommended by the Mindustry server
+  "reactorExplosions": false,
+  "logicUnitBuild": false,
+  "logicUnitDeconstruct": false
+}
